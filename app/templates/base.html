@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ data.title }}</title>
+  <meta name="description" content="{{ data.description }}">
+  <meta property="og:title" content="{{ data.title }}">
+  <meta property="og:description" content="{{ data.description }}">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#06b6d4">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="font-['Inter'] text-slate-100 bg-black min-h-screen relative overflow-x-hidden">
+  <!-- Dynamic backgrounds -->
+  <canvas id="matrix" class="matrix-bg"></canvas>
+  <canvas id="stars" class="stars-bg"></canvas>
+  <div class="aurora"></div>
+  <div class="scanlines"></div>
+  <div class="noise"></div>
+  <div class="cyber-grid"></div>
+
+  <header class="backdrop-blur-md bg-black/40 border-b border-cyan-500/30 sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a class="text-xl md:text-2xl font-extrabold neon" href="/">{{ data.owner }}</a>
+      <nav class="flex items-center gap-6 text-sm">
+        <a class="navlink" href="#about">Giới thiệu</a>
+        <a class="navlink" href="#projects">Dự án</a>
+        <a class="navlink" href="#exercises">Bài tập</a>
+        <a class="navlink" href="#contact">Liên hệ</a>
+      </nav>
+     
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="relative z-10 py-10 text-center text-sm text-slate-400">
+    © <span id="year"></span> {{ data.owner }} · Built with Flask · <span class="text-cyan-400">Cyber ELITE</span>
+  </footer>
+
+  <!-- Command Palette -->
+  <div id="palette" class="palette hidden" role="dialog" aria-modal="true">
+    <div class="palette-box">
+      <input id="palette-input" class="palette-input" placeholder="Đi tới… (gõ: about, projects, exercises, contact)" />
+      <ul id="palette-list" class="palette-list"></ul>
+    </div>
+  </div>
+
+  <div id="red-alert" class="red-alert hidden"><< INTRUSION DETECTED >></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+  <script src="{{ url_for('static', filename='cyber.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+{
+  "owner": "Đinh Quốc Đạt",
+  "title": "Đinh Quốc Đạt — Cyber ELITE Portfolio",
+  "tagline": "Pentest • Web Security • CTF",
+  "description": "MSSV 23162016 ",
+  "meta": "MSSV: 23162016 — ĐT liên hệ: 0889002118 — Email: fzquocdat@gmail.com",
+  "githubUser": "your-github",
+  "photo": "/static/avatar.jpg",
+  "stats": {
+    "ctf": 87,
+    "repos": 12,
+    "reports": 5
+  },
+  "skills": [
+    {
+      "name": "Web Exploit",
+      "value": 84
+    },
+    {
+      "name": "Pentest",
+      "value": 88
+    },
+    {
+      "name": "Python",
+      "value": 60
+    },
+    {
+      "name": "JS",
+      "value": 60
+    },
+    {
+      "name": "Linux",
+      "value": 70
+    },
+    {
+      "name": "Docker",
+      "value": 50
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2025-10",
+      "title": "TeamCTF N3tw0rkGhosts",
+      "desc": "Country place: 37"
+    },
+    {
+      "date": "2025-05",
+      "title": "Bug bounty report",
+      "desc": "Weak Authentication vulnerability"
+    },
+    {
+      "date": "2025-05",
+      "title": "Bug bounty report",
+      "desc": "Performed vulnerability research across multiple HCMUTE web systems"
+    },
+    {
+      "date": "2025",
+      "title": "Bug bounty report",
+      "desc": "Performed security testing on the trainz.vn, eduz.vn website and successfully identified a Reflected Cross-Site Scripting (XSS) vulnerability"
+    },
+    {
+      "date": "2025-10",
+      "title": "Research",
+      "desc": "Research HTTP Request Smuggling."
+    }
+  ],
+  "badges": [
+    {
+      "label": "XSS Hunter",
+      "hint": "Reflected + Stored XSS labs"
+    },
+    {
+      "label": "SQLi Slayer",
+      "hint": "Union/Blind/Error-based"
+    },
+    {
+      "label": "SSTI",
+      "hint": "Jinja2"
+    },
+    {
+      "label": "HTTP request smuggling",
+      "hint": "TE.CL, CL.TE, TE.TE"
+    }
+    ,
+    {
+      "label": "GraphQL Injection",
+      "hint": ""
+    }
+    ,
+    {
+      "label": "Client Side Path Traversal",
+      "hint": ""
+    }
+  ],
+  "exercises": [
+    {
+      "title": "Bài tập 2 (22/8)",
+      "links": [
+        {
+          "label": "BT2",
+          "url": "https://webmail-ty1g.onrender.com/"
+        }
+      ],
+      "topics": [
+        "Buổi 2"
+      ]
+    },
+    {
+      "title": "Bài tập 3 (28/8)",
+      "links": [
+        {
+          "label": "BT3",
+          "url": "https://webmmailbuoi3.onrender.com"
+        }
+      ],
+      "topics": [
+        "Buổi 3"
+      ]
+    },
+    {
+      "title": "Bài tập 4 (29/8)",
+      "links": [
+        {
+          "label": "BT4",
+          "url": "https://webbuoi4.onrender.com"
+        }
+      ],
+      "topics": [
+        "Buổi 4"
+      ]
+    },
+    {
+      "title": "Bài tập 5 (4/9) — Chương 6",
+      "desc": "Exercises chương 6",
+      "links": [
+        {
+          "label": "Ex6.1",
+          "url": "https://ex4-1-33g8.onrender.com/"
+        },
+        {
+          "label": "Ex6.2",
+          "url": "https://buoi6-ex4-2.onrender.com/"
+        }
+      ],
+      "topics": [
+        "Chương 6"
+      ]
+    },
+    {
+      "title": "Bài tập 6 (5/9) — Chương 8, 9",
+      "desc": "Exercises chương 8 & 9",
+      "links": [
+        {
+          "label": "Ex8",
+          "url": "https://web8-4sdu.onrender.com/"
+        },
+        {
+          "label": "Ex9.1",
+          "url": "https://web9-hdu1.onrender.com/"
+        },
+        {
+          "label": "Ex9.2",
+          "url": "https://webmail-9-2.onrender.com/"
+        }
+      ],
+      "topics": [
+        "Chương 8",
+        "Chương 9"
+      ]
+    },
+    {
+      "title": "Bài tập 7",
+      "links": [
+        {
+          "label": "Chap7-1",
+          "url": "https://chap7-1-qu0f.onrender.com"
+        },
+        {
+          "label": "Chap7-2",
+          "url": "https://chap7-2-swyv.onrender.com"
+        }
+      ],
+      "topics": [
+        "Chương 7"
+      ]
+    },
+    {
+      "title": "Bài tập 8",
+      "links": [
+        {
+          "label": "Ex12.1",
+          "url": "https://web12-1-8.onrender.com"
+        },
+        {
+          "label": "Ex12.2",
+          "url": "https://web12-2-8.onrender.com"
+        }
+      ],
+      "topics": [
+        "Chương 12"
+      ]
+    },
+    {
+      "title": "Bài tập 9",
+      "links": [
+        {
+          "label": "Ex13.1",
+          "url": "https://web13-1-9.onrender.com"
+        },
+        {
+          "label": "Ex13.2",
+          "url": "https://web13-2-9.onrender.com"
+        }
+      ],
+      "topics": [
+        "Chương 13"
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "label": "Email",
+      "url": "mailto:fzquocdat@gmail.com"
+    },
+    {
+      "label": "Điện thoại",
+      "url": "tel:+84889002118"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block content %}
+  <!-- HERO -->
+  <section class="py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div class="reveal">
+      <h1 class="glitch text-4xl md:text-6xl font-extrabold leading-tight">
+        {{ data.owner }}
+        <span aria-hidden="true">{{ data.owner }}</span>
+        <span aria-hidden="true">{{ data.owner }}</span>
+      </h1>
+      <p class="mt-3 text-cyan-300 font-mono" id="typewriter" data-text="{{ data.tagline or 'Pentest • Web Security • CTF' }}"></p>
+      <p class="mt-4 text-slate-300">{{ data.description }}</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#exercises" class="btn-outline">Xem Bài tập</a>
+        <a href="#contact" class="btn-ghost">Liên hệ</a>
+      </div>
+      {% if data.meta %}
+      <div class="mt-4 text-xs text-slate-400 font-mono"># {{ data.meta }}</div>
+      {% endif %}
+    </div>
+    <div class="mx-auto w-full max-w-sm tilt reveal">
+      {% if data.photo %}
+        <img class="avatar" src="{{ data.photo }}" alt="Ảnh của {{ data.owner }}">
+      {% else %}
+        <div class="avatar placeholder">No Photo</div>
+      {% endif %}
+      <div class="terminal mt-6 tilt">
+        <div class="terminal-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="title">/usr/bin/intro.sh</span>
+        </div>
+        <pre class="terminal-body"><code>$ whoami
+{{ data.owner | lower | replace(" ", "_") }}
+$ uname -a
+Linux render 6.1.x #1 SMP PREEMPT x86_64 GNU/Linux
+$ nmap -sC -sV portfolio.local
+80/tcp open  http   Werkzeug/3.x (Flask)
+443/tcp open https  gunicorn
+$ echo "Ready to hack & learn!"
+Ready to hack & learn!
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE STATS + RADAR -->
+  <section class="section">
+    <h2 class="section-title">Skill Radar & Stats</h2>
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      <div class="stat-card tilt reveal">
+        <div class="stat-number" data-target="{{ data.stats.ctf if data.stats and data.stats.ctf else 0 }}">0</div>
+        <div class="stat-label">CTF solved</div>
+      </div>
+      <div class="stat-card tilt reveal">
+        <div class="stat-number" data-target="{{ data.stats.repos if data.stats and data.stats.repos else 0 }}">0</div>
+        <div class="stat-label">Repos</div>
+      </div>
+      <div class="stat-card tilt reveal">
+        <div class="stat-number" data-target="{{ data.stats.reports if data.stats and data.stats.reports else 0 }}">0</div>
+        <div class="stat-label">Vuln reports</div>
+      </div>
+    </div>
+    <div class="mt-8 card neon-border reveal">
+      <canvas id="radar" width="640" height="420" aria-label="Radar skills"></canvas>
+    </div>
+  </section>
+
+  <!-- TIMELINE + BADGES -->
+  <section class="section">
+    <h2 class="section-title">Milestones & Badges</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="timeline card reveal">
+        {% for item in data.timeline %}
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-date">{{ item.date }}</div>
+              <div class="tl-title">{{ item.title }}</div>
+              <div class="tl-desc">{{ item.desc }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="badge-wall card reveal">
+        {% for b in data.badges %}
+          <div class="badge">
+            <span class="badge-core">{{ b.label }}</span>
+            <span class="badge-hint">{{ b.hint }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="grid md:grid-cols-2 gap-6">
+      {% for p in data.projects %}
+      <article class="card neon-border tilt reveal">
+        <h3 class="card-title">
+          <a class="link" href="{{ p.link }}" target="_blank" rel="noopener">{{ p.title }}</a>
+        </h3>
+        <p class="card-desc">{{ p.desc }}</p>
+        <div class="tags">
+          {% for t in p.topics %}<span class="chip">{{ t }}</span>{% endfor %}
+        </div>
+        <div class="mt-4 flex gap-2">
+          <a class="btn-outline" href="{{ p.link }}" target="_blank" rel="noopener">Xem repo</a>
+          <button class="btn-ghost copy" data-copy="{{ p.link }}">Copy link</button>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- EXERCISES -->
+  <section id="exercises" class="section">
+    <h2 class="section-title">Bài tập</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      {% for e in data.exercises %}
+      <article class="card tilt reveal">
+        <h3 class="card-title">{{ e.title }}</h3>
+        {% if e.desc %}<p class="card-desc">{{ e.desc }}</p>{% endif %}
+        <div class="tags">
+          {% if e.topics %}{% for t in e.topics %}<span class="chip">{{ t }}</span>{% endfor %}{% endif %}
+        </div>
+        {% if e.links %}
+          <ul class="mt-3 list-disc pl-6 space-y-1">
+            {% for l in e.links %}
+              <li class="flex items-center gap-2">
+                <a class="link" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label or l.url }}</a>
+                <button class="chip copy-xs" title="Copy" data-copy="{{ l.url }}">⎘</button>
+              </li>
+            {% endfor %}
+          </ul>
+        {% elif e.link %}
+          <div class="mt-4 flex gap-2">
+            <a class="btn-outline" href="{{ e.link }}" target="_blank" rel="noopener">Xem bài tập</a>
+            <button class="btn-ghost copy" data-copy="{{ e.link }}">Copy link</button>
+          </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Liên hệ</h2>
+    <div class="flex flex-wrap gap-3 reveal">
+      {% for c in data.contacts %}
+      <a class="chip" href="{{ c.url }}" target="_blank" rel="noopener">{{ c.label }}</a>
+      {% endfor %}
+    </div>
+  </section>
+
+{% block extra_scripts %}{% endblock %}
+<script id="skills-data" type="application/json">{{ data.skills|tojson }}</script>
+{% endblock %}
